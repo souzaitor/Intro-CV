@@ -342,39 +342,4 @@ ${f_i}^{\to}={f_i}^{\to}/||{f_i}^{\to}||$
 valores e influenciar fortemente os resultados, então ele corta valores maiores que 0,2, e
 renormaliza o vetor novamente
 
-# Notas da Aula
 
-- Detectar pontos salientes ou key points, fazer o casamento e usar esses pontos para gerar uma transformação, que faça uma imagem se mover e casar com a outra
-- patches: regiões de interesse nas imagens, nessas regiões de interesse que procuramos os nossos pontos salientes
-
-Como detectar corners?
-
-- A região flat não contém informação, ajuda em nada
-- Analisando o gradiente, há uma ou duas direções, grande mudança de aparência
-- Transladar pequenos patch, onde houver quantidade muito grande de diferença, é o corner
-- Gradiente
-- Auto valores e Auto vetores, Eigenvector e eigenvalues, calculados através do sistema:
-- $(A-I\lambda)\mu=0$. Conjunto de vetores muito específicos. eigen analyses
-- Série de Taylor: Pega uma imagem ou patch, com um deslocamento pequeno é possível aproximar pelo valor original mais a soma da derivada em relação a x e relação a y
-- Trabalhando a derivada, ao invés de trabalhar com os valores do patches, níveis de cinza, muito sensível, se trabalha com os valores dos gradiente
-- PCA: Principal Component Analysis, faz redução de dimensionalidade
-- Autovetor: Quão rápido o patch muda
-- Combinam os eigenvalues em um único valor chamado R, variando entre 0 e 1
-- É possível aplicar um threshold
-- traço: soma dos elementos da diagonal principal
-- janela Gaussiana, ajuda no sentido de dar peso, igual distribuído
-- Não é variante a escala, não pode garantir que os pontos serão detectados em escalas diferentes
-- Calcular na mão, convolução
-- Implementar na mão algoritmo de harris
-
-- Usamos as pirâmides de imagem
-- Análise em diferentes escalas
-- Imagem sampling: aliasing, usar filtros anti aliasing. Presença de artefatos em alta frequência.
-- Downsampling
-- Laplaciana da Gaussiana
-- SIFT: Baseado emm gradiante, a questão da iluminação pode afetar um pouco
-- Aplicar filtro gaussiano: eficiente, função isotrôpica, criavel por dois filtros 1D
-- A convolução é feita por separação
-- Muito melhor calcular a diferença de gaussianas do que o laplaciano da gaussiana, mais eficiente.
-- Matriz Hessiana: Matriz derivada de segunda ordem
-- Descritor de pontos: vetor que vai pegar características locais ao ponto e representa-las de forma inteligente, sendo único a esse vetor (fingerprint)
